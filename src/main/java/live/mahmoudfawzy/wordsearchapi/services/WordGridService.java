@@ -39,9 +39,9 @@ public class WordGridService {
 			}
 		}
 		
-		Collections.shuffle(coordinates);
 
 		for (String word : words) {
+			Collections.shuffle(coordinates);
 			for (Coordinate coordinate : coordinates) {
 				int x = coordinate.x;
 				int y = coordinate.y;
@@ -97,7 +97,9 @@ public class WordGridService {
 		for (int i = 0; i < gridSize; i++) {
 			for (int j = 0; j < gridSize; j++) {
 				int randomIndex = ThreadLocalRandom.current().nextInt(0, allCapLetters.length());
-				contents[i][j] = allCapLetters.charAt(randomIndex);
+				if (contents[i][j] == '_') {
+					contents[i][j] = allCapLetters.charAt(randomIndex);
+				}
 			}
 		}
 	}
@@ -116,15 +118,14 @@ public class WordGridService {
 	private boolean doesFit(char[][] contents, String word, Coordinate coordinate, Direction direction) {
 		int gridSize = contents[0].length;
 		int wordLength = word.length();
-		char[] wordChars = word.toCharArray();
 
 		switch (direction) {
 		case HORIZONTAL:
 			if (coordinate.y + wordLength > gridSize)
 				return false;
 			for (int i = 0; i < wordLength; i++) {
-				char currentGridSpot = contents[coordinate.x][coordinate.y + i];
-				if (currentGridSpot != '_' && currentGridSpot != wordChars[i])
+				char letter = contents[coordinate.x][coordinate.y + i];
+				if (letter != '_' && letter != word.charAt(i))
 					return false;
 			}
 			break;
@@ -132,8 +133,8 @@ public class WordGridService {
 			if (coordinate.x + wordLength > gridSize)
 				return false;
 			for (int i = 0; i < wordLength; i++) {
-				char currentGridSpot = contents[coordinate.x + i][coordinate.y];
-				if (currentGridSpot != '_' && currentGridSpot != wordChars[i])
+				char letter = contents[coordinate.x + i][coordinate.y];
+				if (letter != '_' && letter != word.charAt(i))
 					return false;
 			}
 			break;
@@ -141,8 +142,8 @@ public class WordGridService {
 			if (coordinate.y + wordLength > gridSize || coordinate.x + wordLength > gridSize)
 				return false;
 			for (int i = 0; i < wordLength; i++) {
-				char currentGridSpot = contents[coordinate.x + i][coordinate.y + i];
-				if (currentGridSpot != '_' && currentGridSpot != wordChars[i])
+				char letter = contents[coordinate.x + i][coordinate.y + i];
+				if (letter != '_' && letter != word.charAt(i))
 					return false;
 			}
 			break;
@@ -150,8 +151,8 @@ public class WordGridService {
 			if (coordinate.y < wordLength)
 				return false;
 			for (int i = 0; i < wordLength; i++) {
-				char currentGridSpot = contents[coordinate.x][coordinate.y - i];
-				if (currentGridSpot != '_' && currentGridSpot != wordChars[i])
+				char letter = contents[coordinate.x][coordinate.y - i];
+				if (letter != '_' && letter != word.charAt(i))
 					return false;
 			}
 			break;
@@ -159,8 +160,8 @@ public class WordGridService {
 			if (coordinate.x < wordLength)
 				return false;
 			for (int i = 0; i < wordLength; i++) {
-				char currentGridSpot = contents[coordinate.x - i][coordinate.y];
-				if (currentGridSpot != '_' && currentGridSpot != wordChars[i])
+				char letter = contents[coordinate.x - i][coordinate.y];
+				if (letter != '_' && letter != word.charAt(i))
 					return false;
 			}
 			break;
@@ -168,8 +169,8 @@ public class WordGridService {
 			if (coordinate.y < wordLength || coordinate.x < wordLength)
 				return false;
 			for (int i = 0; i < wordLength; i++) {
-				char currentGridSpot = contents[coordinate.x - i][coordinate.y - i];
-				if (currentGridSpot != '_' && currentGridSpot != wordChars[i])
+				char letter = contents[coordinate.x - i][coordinate.y - i];
+				if (letter != '_' && letter != word.charAt(i))
 					return false;
 			}
 			break;
