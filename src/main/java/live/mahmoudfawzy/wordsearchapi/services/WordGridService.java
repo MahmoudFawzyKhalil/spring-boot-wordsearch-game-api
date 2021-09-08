@@ -125,7 +125,7 @@ public class WordGridService {
 				return false;
 			for (int i = 0; i < wordLength; i++) {
 				char letter = contents[coordinate.x][coordinate.y + i];
-				if (letter != '_' && letter != word.charAt(i))
+				if (letter != '_' )
 					return false;
 			}
 			break;
@@ -134,7 +134,7 @@ public class WordGridService {
 				return false;
 			for (int i = 0; i < wordLength; i++) {
 				char letter = contents[coordinate.x + i][coordinate.y];
-				if (letter != '_' && letter != word.charAt(i))
+				if (letter != '_' )
 					return false;
 			}
 			break;
@@ -143,7 +143,7 @@ public class WordGridService {
 				return false;
 			for (int i = 0; i < wordLength; i++) {
 				char letter = contents[coordinate.x + i][coordinate.y + i];
-				if (letter != '_' && letter != word.charAt(i))
+				if (letter != '_' )
 					return false;
 			}
 			break;
@@ -152,7 +152,7 @@ public class WordGridService {
 				return false;
 			for (int i = 0; i < wordLength; i++) {
 				char letter = contents[coordinate.x][coordinate.y - i];
-				if (letter != '_' && letter != word.charAt(i))
+				if (letter != '_' )
 					return false;
 			}
 			break;
@@ -161,7 +161,7 @@ public class WordGridService {
 				return false;
 			for (int i = 0; i < wordLength; i++) {
 				char letter = contents[coordinate.x - i][coordinate.y];
-				if (letter != '_' && letter != word.charAt(i))
+				if (letter != '_' )
 					return false;
 			}
 			break;
@@ -170,7 +170,7 @@ public class WordGridService {
 				return false;
 			for (int i = 0; i < wordLength; i++) {
 				char letter = contents[coordinate.x - i][coordinate.y - i];
-				if (letter != '_' && letter != word.charAt(i))
+				if (letter != '_' )
 					return false;
 			}
 			break;

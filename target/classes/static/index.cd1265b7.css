@@ -1,0 +1,146 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Consolas, monospace;
+  /* background-color: #14342B; */
+  color: #c8e9a0;
+}
+
+h1 {
+  color: #c8e9a0;
+  font-size: 36px;
+  text-shadow: 2px 2px 0 #748386;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #c8e9a0;
+  text-shadow: 2px 2px 0 #748386;
+}
+
+.hint {
+  font-size: 20px;
+}
+
+.success {
+  color: #f7a278;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  color: #f7a278;
+  text-shadow: 2px 2px 0 #40376e;
+}
+
+.grid-area {
+  user-select: none;
+}
+
+table {
+  margin: 10px auto;
+}
+
+table:hover {
+  cursor: pointer;
+}
+
+td {
+  margin-right: 14px;
+  margin-bottom: 2px;
+  font-size: 28px;
+  display: inline-block;
+  text-shadow: 1px 1px 0 #748386;
+}
+
+td:hover {
+  color: #f7a278;
+}
+
+td.selected {
+  color: #f7a278;
+  position: relative;
+}
+
+td.selected::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  padding: 1px;
+  border-radius: 50%;
+  left: -6px;
+  top: 5px;
+  background-color: #40376e;
+  position: absolute;
+  z-index: -1;
+}
+
+td.selected-correct {
+  color: #c6bbff;
+  position: relative;
+}
+
+td.selected-correct::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  padding: 1px;
+  border-radius: 50%;
+  left: -6px;
+  top: 5px;
+  background-color: #4b7951;
+  position: absolute;
+  z-index: -1;
+}
+
+.container {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 10px;
+  /* background-color: #F7A278; */
+}
+
+input {
+  border: 2px solid #748386;
+  padding: 4px;
+  border-radius: 5px;
+  font-family: Consolas;
+  display: block;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  text-align: left;
+  color: #f7a278;
+  text-shadow: 1px 1px 0 #40376e;
+  font-size: 16px;
+}
+
+.submit-word {
+  font-family: Consolas, monospace;
+  background-color: #748386;
+  color: #c8e9a0;
+  border: 2px solid #c8e9a0;
+  border-radius: 10px;
+  padding: 8px;
+  text-transform: uppercase;
+  display: block;
+  font-size: 20px;
+  margin: auto;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #868b8b;
+}
+
+/*# sourceMappingURL=index.cd1265b7.css.map */
